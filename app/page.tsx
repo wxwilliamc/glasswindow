@@ -1,3 +1,4 @@
+import JobFilterSidebar from "@/components/JobFilterSidebar"
 import JobListItem from "@/components/JobListItem"
 import { db } from "@/lib/db"
 
@@ -23,10 +24,14 @@ const Homepage = async () => {
         </p>
       </section>
 
-      <section className="space-y-4">
-        {jobs.map(job => (
-          <JobListItem job={job} key={job.id} />
-        ))}
+      <section className="flex flex-col md:flex-row gap-4">
+        <JobFilterSidebar />
+
+        <div className="space-y-4 grow">
+          {jobs.map(job => (
+            <JobListItem job={job} key={job.id} />
+          ))}
+        </div>
       </section>
     </main>
   )
